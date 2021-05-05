@@ -1,0 +1,15 @@
+{
+  "googleAnalyticsId": "",
+  "matomoSiteId": "",
+  "fathomSiteId": "",
+  "fathomGoals": {
+    "signPetition": "",
+    "makePhoneCall": "",
+    "playVideo": ""
+  },
+  "mapboxToken": "",
+  "isArchived": false,
+  "features": {
+    "map": false
+  }
+}

@@ -1,0 +1,116 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in .3s;
+  animation-fill-mode: forwards;
+}
+
+img {
+  max-width: 100%;
+}
+
+.btn {
+  color: $btn-color;
+  text-decoration: none;
+  transition: $btn-transition, transform .4s;
+
+  &.disabled,
+  &:disabled {
+    color: $btn-color;
+  }
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.btn-facebook,
+.btn-twitter,
+.btn-facebook:hover,
+.btn-twitter:hover {
+  color: #fff !important;
+}
+
+.textarea-with-btn {
+  position: relative;
+
+  textarea {
+    // NOTE: magic number based on length of button text
+    padding-right: $spacer*10;
+  }
+
+  .btn {
+    position: absolute;
+    top:   $spacer;
+    right: $spacer*2;
+  }
+}
+
+.modal {
+  .text-muted {
+    color: $gray-600 !important;
+  }
+
+  a:not(.btn) {
+    color: $blue;
+
+    &:hover {
+      color: darken($blue, 10%);
+    }
+  }
+}
+
+section {
+  padding: 3rem;
+
+  @include media-breakpoint-down(sm) {
+    padding: 1.5rem;
+  }
+
+  &:nth-child(even) {
+    background-color: theme-color(alt);
+  }
+
+  &:last-child {
+    padding-bottom: $spacer * 10;
+  }
+}
+
+.fftf-logo {
+  background-image: url("~assets/images/fftf-logo-dark.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 72px;
+  display: inline-block;
+}
+
+@if $theme == dark {
+  .fftf-logo {
+    background-image: url("~assets/images/fftf-logo-light.svg");
+  }
+}
+
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+.hover-scale {
+  transition: transform .4s;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
