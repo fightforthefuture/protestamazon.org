@@ -1,11 +1,11 @@
 # GLOBAL Site Translations, intentionally namespaced
 en:
   global:
-    site_title: protestamazon.org
+    site_title: Protest Amazon
     site_url: https://www.protestamazon.org
     donation_url: https://www.fightforthefuture.org/donate/
     sharing:
-      title: protestamazon.org
+      title: Protest Amazon
       description: A Fight for the Future website
       image: https://www.protestamazon.org/share.jpg
       default_tweet_text: FIXME

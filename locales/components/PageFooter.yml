@@ -1,9 +1,14 @@
 en:
-  built_by: "Built by:"
+  built_by: "Protest Amazon a project of:"
   for_press: "For press inquiries, please contact us at:"
   press_contact_html: >
-    <a href="tel://5084745248">(508) 474-5248</a> or
-    <a href="mailto:press@fightforthefuture.org">press@fightforthefuture.org</a>
+    <p>
+      <a href="tel://5084745248">(508) 474-5248</a> or
+      <a href="mailto:press@fightforthefuture.org">press@fightforthefuture.org</a>
+      <br/>
+      <a href="tel://5106983800">(510) 698-3800 x 413</a> or
+      <a href="mailto:eteng@mediajustice.org">eteng@mediajustice.org</a>
+    </p>
   other_contact_html: >
     All other inquiries, contact
     <a href="mailto:team@fightforthefuture.org">

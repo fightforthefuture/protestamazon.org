@@ -5,10 +5,12 @@
 
 <script>
 import ActionNetworkForm from '~/components/ActionNetworkForm'
+import LogoCloud from '~/components/LogoCloud'
 
 export default {
   components: {
-    ActionNetworkForm
+    ActionNetworkForm,
+    LogoCloud
   }
 }
 </script>

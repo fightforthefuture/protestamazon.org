@@ -1,11 +1,13 @@
 {
   "googleAnalyticsId": "",
   "matomoSiteId": "",
-  "fathomSiteId": "",
+  "fathomSiteId": "AWQLSPUP",
   "fathomGoals": {
     "signPetition": "",
     "makePhoneCall": "",
-    "playVideo": ""
+    "playVideo": "",
+    "generateImage": "9XRFXYDT",
+    "uploadVideo": "GYFHPQXD"
   },
   "mapboxToken": "",
   "isArchived": false,

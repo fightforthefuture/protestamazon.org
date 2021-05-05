@@ -1,14 +1,14 @@
 // bootstrap overrides
-$body-color: #fff;
-$link-color: #52B1FF;
-$body-bg: #29303C;
+$body-color: #000;
+$link-color: #000;
+$body-bg: #fff;
 $text-muted: rgba(255, 255, 255, 0.7);
 $modal-content-color: #222;
 
 $theme-colors: map-merge(
   (
-    "primary": #41CF7A,
-    "alt": #424956,
+    "primary": #ff0000,
+    "alt": #efefef,
     "success": #41CF7A,
     // "secondary":  $secondary,
     // "success":    $success,

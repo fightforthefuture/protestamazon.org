@@ -4,8 +4,13 @@
 <style lang="scss" scoped>
 footer {
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
-}
 
+  img {
+    margin: $spacer;
+    max-height: 100px;
+    max-width: 200px;
+  }
+}
 .arrow-up {
   @include arrow-up($body-bg);
 }
@@ -15,11 +20,23 @@ footer {
   <footer class="text-center">
     <div class="bg-alt p-4">
       {{ $t('built_by') }}<br>
-      <a href="https://www.fightforthefuture.org">
-        <img class="fftf-logo"
-             src="~assets/images/spacer.png"
-             :alt="$t('global.common.logo_alt')">
-      </a>
+      <div class="d-flex align-items-center flex-wrap">
+        <div class="col-4">
+          <a href="https://www.mediajustice.org" target="_blank">
+            <img src="/logos/MediaJustice.png" alt="MediaJustice">
+          </a>
+        </div>
+        <div class="col-4">
+          <a href="https://www.fightforthefuture.org" target="_blank">
+            <img src="/logos/Fight for the Future.svg" alt="Fight for the Future" style="width:200px">
+          </a>
+        </div>
+        <div class="col-4">
+          <a href="https://athenaforall.org" target="_blank">
+            <img src="/logos/Athena Coalition.png" alt="Athena Coalition">
+          </a>
+        </div>
+      </div>
     </div>
     <div class="arrow-up p-4">
       <p>
