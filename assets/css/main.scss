@@ -114,3 +114,42 @@ iframe {
     transform: scale(1.02);
   }
 }
+
+.selfie-container {
+  height: 100%;
+  width: 100%;
+
+  > div {
+    height: 100%;
+    position: relative;
+    width: 100%;
+
+    .bg {
+      background-position: bottom center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      bottom: 0;
+      filter: gray;
+      filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+      left: 0;
+      opacity: .3;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      &:after {
+        content: '';
+        background: linear-gradient(180deg, rgba(theme-color("primary"),1) 0%, rgba(theme-color("primary"),0) 100%);
+        height: $spacer * 5;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+
+    > :not(.bg) {
+      position: relative;
+    }
+  }
+}

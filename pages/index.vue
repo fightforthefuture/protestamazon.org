@@ -6,11 +6,13 @@
 <script>
 import ActionNetworkForm from '~/components/ActionNetworkForm'
 import LogoCloud from '~/components/LogoCloud'
+import SelfieForm from '~/components/SelfieForm'
 
 export default {
   components: {
     ActionNetworkForm,
-    LogoCloud
+    LogoCloud,
+    SelfieForm
   }
 }
 </script>

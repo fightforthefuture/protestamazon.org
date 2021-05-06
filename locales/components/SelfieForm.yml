@@ -1,0 +1,13 @@
+en:
+  comment_label: "Add your comments:"
+  comment_placeholder: Your comment goes here...
+  upload_button: Upload
+  upload_button_full_width: Upload Photo
+  take_photo: Take Photo
+  retake_photo: Retake Photo
+  submit_button: Next
+  camera_connection_error: Couldn't connect to camera 😞
+  starting: Starting...
+  ready_in: Ready in
+  character_count: no characters left | 1 character left | {count} characters left
+  download: Download to Share
