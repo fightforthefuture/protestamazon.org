@@ -21,17 +21,17 @@ footer {
     <div class="bg-alt p-4">
       {{ $t('built_by') }}<br>
       <div class="d-flex align-items-center flex-wrap">
-        <div class="col-4">
+        <div class="col-md-4">
           <a href="https://www.mediajustice.org" target="_blank">
             <img src="/logos/MediaJustice.png" alt="MediaJustice">
           </a>
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
           <a href="https://www.fightforthefuture.org" target="_blank">
             <img src="/logos/Fight for the Future.svg" alt="Fight for the Future" style="width:200px">
           </a>
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
           <a href="https://athenaforall.org" target="_blank">
             <img src="/logos/Athena Coalition.png" alt="Athena Coalition">
           </a>
