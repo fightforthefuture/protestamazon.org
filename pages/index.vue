@@ -116,6 +116,16 @@ h3 {
   padding-left: $spacer * 3;
   position: relative;
 
+  img {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
   .number {
     bottom: 0;
     left: -100%;
