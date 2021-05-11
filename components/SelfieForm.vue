@@ -105,7 +105,7 @@
 <template lang="pug">
   .selfie-form
     form(v-if="!hasSubmitted" @submit.prevent="submitForm()")
-      p.alert-danger.p-3.rounded(v-if="errorMessage") {{ errorMessage }}
+      p.alert-danger.p-3.rounded-sm(v-if="errorMessage") {{ errorMessage }}
 
       input(v-show="false"
         @change="uploadPhoto"
@@ -116,13 +116,13 @@
 
       .row
         .col-md-6
-          .bg-white.rounded.p-2.m-2
+          .bg-white.rounded-sm.p-2.m-2
             .preview-container.mb-1(
               ref="shareable"
               @click="clickPreview"
               :style="{ width: previewWidth, height: previewHeight }"
             )
-              img.rounded(v-if="!originalPhoto && !videoStream"
+              img.rounded-sm(v-if="!originalPhoto && !videoStream"
                 ref="placeholderImage"
                 src="~assets/images/photo-placeholder.svg"
                 alt="Your image goes here"
@@ -135,9 +135,6 @@
               //- This always needs to be present in the DOM, but should only be
                   visible if there's a video stream
               video(v-show="videoStream" ref="liveView" autoplay)
-
-              //- This will be combined with the uploaded photo
-              img.rounded(v-show="true" ref="overlay" src="~/assets/images/selfie-overlay.png" alt="" class="overlay")
 
 
             .row(v-if="hasWebcam")
@@ -187,7 +184,7 @@
                     | {{ $t('upload_button_full_width') }}
 
         .col-md-6
-          .bg-white.rounded.p-2.m-2.comments
+          .bg-white.rounded-sm.p-2.m-2.comments
             label {{ $t('comment_label') }}
             textarea.form-control(
               v-model.trim="comment"

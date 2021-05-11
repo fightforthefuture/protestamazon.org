@@ -77,10 +77,6 @@ section {
     padding: 1.5rem;
   }
 
-  &:nth-child(even) {
-    background-color: theme-color(alt);
-  }
-
   &:last-child {
     padding-bottom: $spacer * 10;
   }

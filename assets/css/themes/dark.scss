@@ -1,5 +1,5 @@
 // bootstrap overrides
-$body-color: #000;
+$body-color: #343434;
 $link-color: #000;
 $body-bg: #fff;
 $text-muted: rgba(255, 255, 255, 0.7);
@@ -7,9 +7,14 @@ $modal-content-color: #222;
 
 $theme-colors: map-merge(
   (
-    "primary": #ff0000,
-    "alt": #efefef,
+    "primary": #FF341E,
+    "alt": #6F6F6F,
     "success": #41CF7A,
+    "gray": #A5A5A5,
+    "gray-light": #E1E1E1,
+    "gray-lightest": #F6F6F6,
+    "dark-red": #C31A07,
+    "dark": #252525,
     // "secondary":  $secondary,
     // "success":    $success,
     // "info":       $info,

@@ -16,14 +16,29 @@ $theme-colors: (
 // $body-color: #222;
 
 // COMPONENTS
-$border-radius: 5px;
+$border-radius: 200px;
+$border-radius-sm: 50px;
 $grid-gutter-width: 10px;
 
 // TYPOGRAPHY
-$font-family-sans-serif: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-sans-serif: 'Helvetica', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-weight-bold: 700;
-$headings-font-family: 'Montserrat', $font-family-sans-serif;
-$headings-font-weight: 700;
+$headings-font-family: 'Helvetica Inserat', $font-family-sans-serif;
+$headings-font-weight: 800;
+
+@font-face {
+  font-family: 'Helvetica Inserat';
+  font-style: normal;
+  font-weight: normal;
+  src: url('~assets/fonts/HelveticaInseratLTStd-Roman.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: normal;
+  src: url('~assets/fonts/Helvetica.ttf') format('ttf');
+}
 
 // BUTTONS
 $btn-font-weight: $font-weight-bold;
@@ -43,8 +58,8 @@ $progress-bar-transition: width 2s ease-in-out;
 $container-max-widths: (
   // sm: 540px,
   // md: 720px,
-  lg: 768px,
-  xl: 770px
+  lg: 900px,
+  xl: 1010px
 );
 
 // MIXINS
