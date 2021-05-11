@@ -16,6 +16,15 @@ h3 {
   @include font-size(4 * $font-size-base);
 }
 
+.btn {
+  font-family: $headings-font-family;
+
+  span {
+    display: block;
+    padding-top: .25rem;
+  }
+}
+
 .btn-arrow-down {
   @include background-icon-right('~/assets/images/arrow-down.svg', $spacer * 7, 1rem);
   margin: 0 0 -7rem;
@@ -28,7 +37,7 @@ h3 {
   @include background-icon-right('~/assets/images/arrow-right.svg', $spacer * 7, 1rem);
   &:before {
     background-size: $spacer * 4 !important;
-
+    background-position: center $spacer * 1.3 !important;
     @include media-breakpoint-down(sm) {
       background-size: $spacer !important;
     }
@@ -42,7 +51,7 @@ h3 {
 
   &:before {
     background-color: theme-color("dark-red");
-    background-position: center $spacer;
+    background-position: center $spacer * 1.5;
     border-radius: $border-radius;
     background-size: $spacer * 3;
     right: 0;

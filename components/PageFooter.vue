@@ -18,7 +18,7 @@ footer {
 
 <template>
   <footer class="text-center">
-    <div class="bg-alt p-4">
+    <div class="bg-gray-light p-4">
       {{ $t('built_by') }}<br>
       <div class="d-flex align-items-center flex-wrap">
         <div class="col-md-4">
