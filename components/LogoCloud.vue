@@ -21,8 +21,8 @@ ul {
 <template lang="pug">
   ul.row
     li.col-6.col-sm-3(v-for="logo in logos").py-2.pr-2
-      .border.border-gray-light.bg-white.rounded-xs.d-flex
-        .d-flex.align-items-center.justify-content-center.mb-2
+      .border.border-gray-light.bg-white.rounded-xs.d-flex.mb-2
+        .d-flex.align-items-center.justify-content-center
           img(:src="logo.image_url" :alt="`${logo.name} logo`")
 </template>
 
