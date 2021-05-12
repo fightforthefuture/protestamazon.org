@@ -5,10 +5,17 @@ en:
     site_url: https://www.protestamazon.org
     donation_url: https://www.fightforthefuture.org/donate/
     sharing:
-      title: Protest Amazon
-      description: A Fight for the Future website
+      title: Demand Amazon Stop Fueling Violent Policing
+      description: |
+        June marks the one year anniversary of the Black Lives Matter movement uprisings, and Amazon continues to expand police surveillance. We are demanding Amazon permanently divest from surveillance tech & cut ties with the police and ICE.
+
+        Help us shut down Amazon’s surveillance-powered police state ➡️ ProtestAmazon.org
+
       image: https://www.protestamazon.org/share.jpg
-      default_tweet_text: FIXME
+      default_tweet_text: |
+        June marks the one year anniversary of the Black Lives Matter movement uprisings, and Amazon continues to expand police surveillance.
+
+        Join us in demanding Amazon permanently divest from surveillance tech & cut ties with the police and ICE ➡️ ProtestAmazon.org
       url: https://www.protestamazon.org
     letter_text: |
       TODO: letter text goes here
