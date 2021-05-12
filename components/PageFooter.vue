@@ -28,7 +28,7 @@ footer {
         </div>
         <div class="col-md-4">
           <a href="https://www.fightforthefuture.org" target="_blank">
-            <img src="/logos/Fight for the Future.svg" alt="Fight for the Future" style="width:200px">
+            <img src="/logos/Fight for the Future.png" alt="Fight for the Future" style="width:200px">
           </a>
         </div>
         <div class="col-md-4">
