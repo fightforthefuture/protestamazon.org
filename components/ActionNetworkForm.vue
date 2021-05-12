@@ -162,9 +162,7 @@
              required />
           <div class="rounded border d-flex flex-row align-items-center">
             <div class="col-12 col-md-6 px-3 px-md-5">
-              <small>
-                By submitting this video you are granting us the right to use it for promotional purposes. <a href="https://www.fightforthefuture.org/privacy/" target="_blank">Privacy Policy</a> and <a href="https://www.fightforthefuture.org/privacy/" target="_blank">Terms of Service</a>
-              </small>
+              <small class="privacy text-alt" v-html="privacyDisclaimer"></small>
             </div>
             <div class="col-12 col-md-6">
               <button class="btn btn-block btn-primary btn-lg btn-cta rounded" @click.prevent="openFilePicker()">
@@ -199,10 +197,6 @@
             <span v-if="isSending">{{ $t('global.common.sending') }}</span>
             <span v-else>{{ buttonCta }}</span>
           </button>
-          <small class="text-muted text-center d-block mt-1" v-if="!optedOut" :id="getId('privacy-disclaimer')">
-            <span v-html="privacyDisclaimer"></span>
-            <button class="btn-link" v-if="isJointPetition" @click.prevent="isEditingSubscription = !isEditingSubscription">{{ $t('edit_subscription') }}</button>
-          </small>
           <p v-if="regulationsDoc">
             <small class="text-muted text-center d-block mt-1" v-html="$t('regulations_disclaimer_html', {regulations_doc: regulationsDoc})"></small>
           </p>

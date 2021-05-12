@@ -152,6 +152,15 @@ label {
   margin-left: $spacer;
 }
 
+.upload-video {
+  @include background-icon-left('~assets/images/upload-video.png');
+}
+
+.privacy {
+  display: block;
+  line-height: 1.2;
+}
+
 </style>
 
 <template lang="pug">
