@@ -111,15 +111,17 @@ iframe {
   }
 }
 
+.canvasable-el {
+  .rounded-sm {
+    border-radius: 0 !important;
+  }
+
+  .placeholder-text {
+    display: none !important;
+  }
+}
 .selfie-container {
-  height: 100%;
-  width: 100%;
-
   > div {
-    height: 100%;
-    position: relative;
-    width: 100%;
-
     .bg {
       background-position: bottom center;
       background-repeat: no-repeat;

@@ -14,25 +14,19 @@
 }
 
 .selfie-button-icon {
-  background-repeat: no-repeat;
-  background-position: left center;
+  // background-repeat: no-repeat;
+  // background-position: 2rem center;
 
   &.take-photo {
-    background-size: 22px auto;
-    padding-left: 28px;
-    background-image: url(~assets/images/take-photo.svg);
+    @include background-icon-left('~assets/images/take-photo.svg');
   }
 
   &.retake-photo {
-    background-size: 15px auto;
-    padding-left: 20px;
-    background-image: url(~assets/images/retake-photo.svg);
+    @include background-icon-left('~assets/images/retake-photo.svg');
   }
 
   &.upload-photo {
-    background-size: 16px auto;
-    padding-left: 22px;
-    background-image: url(~assets/images/upload-photo.svg);
+    @include background-icon-left('~assets/images/upload-photo.svg');
   }
 }
 
@@ -46,33 +40,93 @@
   }
 }
 
+#box {
+   width: 100%;
+   padding-bottom: 100%;
+   color: #FFF;
+   position: relative;
+}
+#inner-content {
+   bottom: 0px;
+   left: 0px;
+   position: absolute;
+   right: 0px;
+   top: 0px;
+
+   .text {
+    @include font-size(40px);
+    font-family: $headings-font-family;
+    line-height: 0.93;
+    padding-bottom: 5rem !important;
+
+    @include media-breakpoint-down(sm) {
+      padding-bottom: 4rem !important;
+    }
+   }
+
+   .url {
+      bottom: 2rem;
+      left: 3rem;
+      position: absolute;
+
+      @include media-breakpoint-down(sm) {
+        bottom: $spacer;
+        left: $spacer;
+      }
+   }
+}
+
 .preview-container {
   overflow: hidden;
   position: relative;
 
-  video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    animation: blur-in 2s;
+  .placeholder-text {
+    font-family: $font-family-sans-serif;
   }
 
-  .overlay {
+  video {
+    animation: blur-in 2s;
+    bottom: 0;
+    height: 100%;
+    left: 0;
     object-fit: cover;
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
     right: 0;
-    pointer-events: none;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+}
+
+.is-step:before {
+  @include border-radius($border-radius);
+  background-color: theme-color(primary);
+  color: theme-color("dark");
+  content: '2';
+  height: $spacer * 2;
+  left: -$spacer;
+  padding-top: 0.35rem;
+  position: absolute;
+  text-align: center;
+  top: $spacer * 2;
+  width: $spacer * 2;
+}
+
+.btn.is-step {
+  position: relative;
+
+  &:before {
+    @include font-size($font-size-base);
+    top: calc(50% - #{$spacer});
   }
 }
 
 .comments {
+  flex-grow: 1;
   position: relative;
 
-  @include media-breakpoint-up(md) {
-    height: 423px;
+  &:before {
+    content: '1';
   }
 
   label {
@@ -82,15 +136,12 @@
   }
 
   textarea {
-    @include media-breakpoint-up(md) {
-      height: 77%;
-    }
-
-    font-size: 32px;
-    line-height: 0.95;
-    font-family: $headings-font-family;
-    // color: #000;
-    text-transform: uppercase;
+    @include font-size(28px);
+    @include border-radius(0);
+    border: none;
+    color: #121212;
+    height: calc(100% - 2rem);
+    line-height: 1.07;
   }
 
   small {
@@ -100,6 +151,34 @@
     margin-top: 10px;
   }
 }
+
+.btn-md {
+  font-size: 28px;
+}
+
+.btn-submit {
+  @include background-icon-right('~/assets/images/arrow-down.svg', $spacer * 7, 1rem);
+  padding-left: $spacer * 3;
+
+  &:before {
+    background-color: theme-color("dark-red");
+    background-position: center $spacer * 1.5;
+    border-radius: $border-radius;
+    background-size: $spacer * 3;
+    right: 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    @include font-size(1.5rem);
+    padding-left: $spacer * 1.5;
+    padding-right: $spacer * 4;
+    &:before {
+      background-size: $spacer;
+      width: $spacer * 3;
+    }
+  }
+}
+
 </style>
 
 <template lang="pug">
@@ -114,89 +193,85 @@
         :disabled="isCapturing"
       )
 
-      .row
+      .row.mb-3
         .col-md-6
-          .bg-white.rounded-sm.p-2.m-2
-            .preview-container.mb-1(
-              ref="shareable"
-              @click="clickPreview"
-              :style="{ width: previewWidth, height: previewHeight }"
-            )
-              img.rounded-sm(v-if="!originalPhoto && !videoStream"
-                ref="placeholderImage"
-                src="~assets/images/photo-placeholder.svg"
-                alt="Your image goes here"
-              )
-              .selfie-container(v-else-if="originalPhoto")
-                .p-3.bg-black
-                  .bg(:style="selfieBackground")
-                  .text.text-primary {{ comment }}
-
+          .preview-container.selfie-container.bg-primary.rounded-sm.mb-3.mb-md-0#box(
+            ref="shareable"
+            @click="clickPreview"
+            :style="{ width: previewWidth, height: previewHeight }"
+          )
+            #inner-content
+              .bg(:style="selfieBackground")
+              .d-flex.h-100(:class="comment == '' ? 'align-items-center placeholder-text text-darkest-red text-center' : 'align-items-end text-white text-uppercase'")
+                .text.p-3.p-md-5 {{ displayableComment }}
+              .url.text-white ProtestAmazon.org
               //- This always needs to be present in the DOM, but should only be
-                  visible if there's a video stream
+                    visible if there's a video stream
               video(v-show="videoStream" ref="liveView" autoplay)
 
-
-            .row(v-if="hasWebcam")
-              .col
-                a.btn.btn-block.btn-sm.btn-primary(
-                  href="#none"
-                  @click.prevent="startLiveView()"
-                  :disabled="isCapturing"
-                )
-                  span.selfie-button-icon(:class="captureButtonIcon")
-                    | {{ captureButtonText }}
-              .col
-                a.btn.btn-block.btn-sm.btn-outline-primary(
-                  href="#none"
-                  @click.prevent="openFilePicker()"
-                  :disabled="isCapturing"
-                )
-                  span.selfie-button-icon.upload-photo {{ $t('upload_button') }}
-
-            //- no webcam
-            div(v-else)
-              //- mobile UI. File picker will include camera option
-              .d-none.d-sm-block.d-md-none
-                .row
-                  .col
-                    a.btn.btn-sm.btn-dark(
-                      :class="captureButtonIcon"
-                      @click.prevent="openFilePicker()"
-                      :disabled="isCapturing"
-                    )
-                      span.selfie-button-icon(:class="captureButtonIcon")
-                        | {{ captureButtonText }}
-                  .col
-                    a.btn.btn-sm.btn-outline-primary(
-                      @click.prevent="openFilePicker()"
-                      :disabled="isCapturing"
-                    )
-                      span.selfie-button-icon.upload-photo {{ $t('upload_button') }}
-
-              //- desktop UI
-              .d-sm-none.d-md-block
-                a.btn.btn-sm.btn-dark.btn-block(
-                  @click.prevent="openFilePicker()"
-                  :disabled="isCapturing"
-                )
-                  span.selfie-button-icon.upload-photo
-                    | {{ $t('upload_button_full_width') }}
-
-        .col-md-6
-          .bg-white.rounded-sm.p-2.m-2.comments
-            label {{ $t('comment_label') }}
+        .col-md-6.d-md-flex.flex-column.pl-md-5
+          .bg-white.rounded-sm.p-3.p-md-5.mx-2.mb-3.comments.is-step
             textarea.form-control(
               v-model.trim="comment"
               :placeholder="$t('comment_placeholder')"
               :maxlength="maxCommentLength"
             )
-            small.d-block.text-muted {{ $tc('character_count', charactersLeft) }}
+            small.d-block {{ $tc('character_count', charactersLeft) }}
+          div(v-if="hasWebcam")
+            a.btn.btn-block.rounded-sm.btn-md.bg-white.text-dark.is-step.mb-1(
+              href="#none"
+              @click.prevent="openFilePicker()"
+              :disabled="isCapturing"
+            )
+              span.selfie-button-icon.upload-photo {{ $t('upload_button') }}
 
-      .d-flex.m-1.p-1
-        button.btn.btn-block.btn-dark.btn-lg(:disabled="!readyToShare")
-          span(v-if="isGenerating") {{ $t('global.common.sending') }}
-          span(v-else) {{ $t('download') }}
+            p.text-center.text-white.mb-1 OR
+
+            a.btn.btn-block.rounded-sm.btn-md.btn-primary(
+              href="#none"
+              @click.prevent="startLiveView()"
+              :disabled="isCapturing"
+            )
+              span.selfie-button-icon(:class="captureButtonIcon")
+                | {{ captureButtonText }}
+
+          //- no webcam
+          div(v-else)
+            //- mobile UI. File picker will include camera option
+            .d-block.d-md-none
+              a.btn.btn-block.rounded-sm.btn-md.bg-white.text-dark.is-step.mb-1(
+                href="#none"
+                @click.prevent="openFilePicker()"
+                :disabled="isCapturing"
+              )
+                span.selfie-button-icon.upload-photo {{ $t('upload_button') }}
+
+              p.text-center.text-white.mb-1 OR
+
+              a.btn.btn-block.rounded-sm.btn-md.btn-primary.mb-3(
+                href="#none"
+                @click.prevent="startLiveView()"
+                :disabled="isCapturing"
+              )
+                span.selfie-button-icon(:class="captureButtonIcon")
+                  | {{ captureButtonText }}
+
+            //- desktop UI
+            .d-none.d-md-block
+              a.btn.btn-block.rounded-sm.btn-md.bg-white.text-dark.is-step(
+                href="#none"
+                @click.prevent="openFilePicker()"
+                :disabled="isCapturing"
+              )
+                span.selfie-button-icon.upload-photo {{ $t('upload_button_full_width') }}
+
+      .row
+        .col-md-6.offset-md-3
+          a.btn.btn-block.btn-submit.bg-white.text-primary.btn-lg.rounded-sm(:disabled="!readyToShare" @click.prevent="createImage()" :class="readyToShare ? '' : 'disabled'")
+            span(v-if="isGenerating")
+              uppercase {{ $t('generating') }}
+            span(v-else)
+              uppercase {{ $t('download') }}
 
     audio(ref="countdownSound" preload="auto")
       source(src="/sounds/countdown.mp3")
@@ -228,7 +303,8 @@ export default {
       hasSubmitted: false,
       errorMessage: null,
       comment: '',
-      originalPhoto: null
+      originalPhoto: null,
+      shareURL: null
     }
   },
 
@@ -245,15 +321,9 @@ export default {
       return !this.isGenerating && this.originalPhoto
     },
 
-    // photoSource: {
-    //   get() {
-    //     return this.$store.state.selfies.photoSource
-    //   },
-
-    //   set(value) {
-    //     this.$store.commit('selfies/setPhotoSource', value)
-    //   }
-    // },
+    displayableComment() {
+      return this.comment == '' ? this.$t('comment_blank') : this.comment
+    },
 
     selfieBackground() {
       if (this.originalPhoto) {
@@ -276,6 +346,9 @@ export default {
         self.previewHeight = self.previewWidth //`${this.height}px`
         this.onload = null
       }
+    } else {
+      this.previewWidth = this.$refs.shareable.clientWidth
+      this.previewHeight = this.$refs.shareable.clientHeight
     }
 
     const devices = await navigator.mediaDevices.enumerateDevices()
@@ -376,6 +449,7 @@ export default {
       this.originalPhoto = await createPNG({ sourceElement: source, sourceFile: file })
       this.isCapturing = false
       this.stopLiveView()
+      this.videoStream = null
       this.captureButtonIcon = 'retake-photo'
       this.captureButtonText = this.$t('retake_photo')
     },
@@ -407,16 +481,22 @@ export default {
     },
 
     async submitForm() {
+      // if (this.isGenerating) return
+
+      // this.isGenerating = true
+
+      // await this.createImage()
+
+
+
+    },
+
+    async createImage() {
       if (this.isGenerating) return
 
       this.isGenerating = true
 
-      await this.createImage()
-
       this.$trackGoal('createSelfie')
-    },
-
-    async createImage() {
       const min_width = this.previewWidth
       const min_height = this.previewHeight
 
@@ -439,12 +519,19 @@ export default {
       })
 
       canvas.toBlob(blob => {
-        const shareURL = URL.createObjectURL(blob)
+        this.shareURL = URL.createObjectURL(blob)
         document.body.removeChild(clone)
-        window.open(shareURL, "_blank")
+        this.download()
         this.isGenerating = false
       }, 'image/png')
 
+    },
+
+    download() {
+      var a = document.createElement("a")
+      a.href = this.shareURL
+      a.setAttribute("download", 'share-image.png')
+      a.click()
     }
   }
 }
