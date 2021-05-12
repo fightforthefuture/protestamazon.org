@@ -8,12 +8,12 @@ section:first-child {
   padding-top: 31vw;
 }
 h1, h2 {
-  @include font-size(5 * $font-size-base);
+  @include font-size(4 * $font-size-base);
   line-height: 0.93;
 }
 
 h3 {
-  @include font-size(4 * $font-size-base);
+  @include font-size(3.5 * $font-size-base);
 }
 
 .btn {
