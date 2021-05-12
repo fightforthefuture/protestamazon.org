@@ -147,6 +147,11 @@ h3 {
   }
 }
 
+label {
+  margin-bottom: 0;
+  margin-left: $spacer;
+}
+
 </style>
 
 <template lang="pug">
@@ -158,14 +163,12 @@ h3 {
 import ActionNetworkForm from '~/components/ActionNetworkForm'
 import LogoCloud from '~/components/LogoCloud'
 import SelfieForm from '~/components/SelfieForm'
-import VideoUploadForm from '~/components/VideoUploadForm'
 
 export default {
   components: {
     ActionNetworkForm,
     LogoCloud,
-    SelfieForm,
-    VideoUploadForm
+    SelfieForm
   }
 }
 </script>

@@ -32,7 +32,7 @@
         </p>
 
         <div class="form-row">
-          <div class="col-sm-12 col-md-6">
+          <div class="col-sm-12 col-md-4">
             <div class="form-group">
               <label :for="getId('name')">{{ $t('form.name.label') }}</label>
               <input
@@ -42,11 +42,10 @@
                 v-model.lazy.trim="name"
                 v-on:keydown.enter.prevent
                 name="member[first_name]"
-                :placeholder="$t('form.name.placeholder')"
-                required />
+                :placeholder="$t('form.name.placeholder')" />
             </div>
           </div>
-          <div class="col-sm-12 col-md-6">
+          <div class="col-sm-12 col-md-4">
             <div class="form-group">
               <label :for="getId('email')">{{ $t('form.email.label') }}</label>
               <input
@@ -56,8 +55,23 @@
                 v-model.lazy.trim="email"
                 v-on:keydown.enter.prevent
                 name="member[email]"
-                :placeholder="$t('form.email.placeholder')"
-                required />
+                :placeholder="$t('form.email.placeholder')" />
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+              <label :for="getId('zip')">
+                {{ $t('form.zip.label') }}
+              </label>
+              <input
+                :id="getId('zip')"
+                class="form-control"
+                type="text"
+                v-model.lazy.trim="zipCode"
+                v-on:keydown.enter.prevent
+                name="member[postcode]"
+                :placeholder="$t('form.zip.placeholder')" />
             </div>
           </div>
         </div>
@@ -76,7 +90,7 @@
         </div>
 
         <div class="form-row">
-          <div class="col-sm-12 col-md-6">
+          <div class="col-sm-12 col-md-6 d-none">
             <div class="form-group">
               <label :for="getId('address')">{{ $t('form.address.label') }}</label>
               <input
@@ -90,25 +104,9 @@
                 :required="contactCongress" />
             </div>
           </div>
-          <div class="col-sm-12 col-md-6">
-            <div class="form-group">
-              <label :for="getId('zip')">
-                {{ $t('form.zip.label') }}
-              </label>
-              <input
-                :id="getId('zip')"
-                class="form-control"
-                type="text"
-                v-model.lazy.trim="zipCode"
-                v-on:keydown.enter.prevent
-                name="member[postcode]"
-                :placeholder="$t('form.zip.placeholder')"
-                required />
-            </div>
-          </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group d-none">
           <label :for="getId('phone')">{{ $t('form.phone.label') }}</label>
           <input
             :id="getId('phone')"
@@ -152,6 +150,29 @@
           </div>
         </div>
 
+        <div class="form-group">
+          <input v-show="false"
+             @change="uploadFile"
+             type="file"
+             accept="video/*"
+             capture="user"
+             ref="fileInput"
+             id="video_file"
+             name="video_file"
+             required />
+          <div class="rounded border d-flex flex-row align-items-center">
+            <div class="col-12 col-md-6 px-3 px-md-5">
+              <small>
+                By submitting this video you are granting us the right to use it for promotional purposes. <a href="https://www.fightforthefuture.org/privacy/" target="_blank">Privacy Policy</a> and <a href="https://www.fightforthefuture.org/privacy/" target="_blank">Terms of Service</a>
+              </small>
+            </div>
+            <div class="col-12 col-md-6">
+              <button class="btn btn-block btn-primary btn-lg btn-cta rounded" @click.prevent="openFilePicker()">
+                <span class="upload-video"><uppercase>Upload video</uppercase></span>
+              </button>
+            </div>
+          </div>
+        </div>
         <div v-if="isGDPRCountry" class="form-group opt-in-wrapper">
           <label :id="getId('gdpr')">{{ $t('gdpr.opt_in_label') }}</label>
           <radio-group :aria-label="getId('gdpr')" @set-radio-selection="setOptedOut" class="row">
@@ -174,7 +195,7 @@
         </div>
 
         <div class="form-group">
-          <button class="btn btn-primary btn-block btn-lg" :disabled="isSending" :aria-describedby="getId('privacy-disclaimer')">
+          <button class="btn btn-primary btn-block btn-lg d-none" :disabled="isSending" :aria-describedby="getId('privacy-disclaimer')">
             <span v-if="isSending">{{ $t('global.common.sending') }}</span>
             <span v-else>{{ buttonCta }}</span>
           </button>
@@ -205,10 +226,10 @@
     </div>
 
     <!-- STEP 2: AFTER-ACTION -->
-    <div v-if="hasSigned" class="text-center mt-5">
-      <h3 tabindex="-1" ref="afteraction" class="text-success">{{ $t('thanks.title') }}</h3>
+    <div v-if="hasSigned" class="mt-5">
+      <h3 tabindex="-1" ref="afteraction" class="text-primary">{{ $t('thanks.title') }}</h3>
       <p>{{ $t('thanks.share') }}</p>
-      <div class="row">
+      <div class="row d-none">
         <div class="col-sm-12 col-lg-4 mb-2 mb-md-0">
           <ShareButton
             size="lg"
@@ -374,7 +395,9 @@ export default {
       optInToSponsors: true,
       optInToReferrer: true,
       jointPetitionMounted: false,
-      uniqueId: null
+      uniqueId: null,
+      videoErrorMessage: null,
+      videoFile: null
     }
   },
 
@@ -670,6 +693,9 @@ export default {
             country: this.country,
             company: this.companyName
           },
+          custom_fields: {
+            video_file: this.videoFile
+          },
           hp_enabled: 'true',
           guard: '',
           contact_congress: this.contactCongress,
@@ -708,6 +734,38 @@ export default {
     clearComment() {
       this.comment = ''
       this.$refs.comment.focus()
+    },
+
+    openFilePicker() {
+      this.$refs.fileInput.click()
+    },
+
+    async uploadFile() {
+      this.videoErrorMessage = null
+      this.videoFile = null
+
+      const file = this.$refs.fileInput.files[0]
+
+      if (!file.type.match(/^video/)) {
+        this.videoErrorMessage = 'Invalid file type. Please choose another file.'
+      }
+
+      const formData = new FormData()
+      formData.append('video', file, file.name)
+
+      const { data } = await this.$axios.post('https://uploads.fightforthefuture.org', formData)
+
+      if (data.success == true) {
+        this.$trackEvent('uploadVideo')
+        this.videoFile = data.file_name
+        if (this.name && this.email && this.zipCode) {
+          this.submitForm()
+        } else {
+          this.hasSigned = true
+        }
+      } else {
+        this.videoErrorMessage = 'There was an error submitting your video. Please try again.'
+      }
     }
   }
 }

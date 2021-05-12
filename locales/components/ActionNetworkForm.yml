@@ -28,16 +28,16 @@ en:
       target="_blank">our Action Network page</a>.
   form:
     name:
-      label: Name*
+      label: Name
       placeholder: First Last
     email:
-      label: E-mail*
+      label: E-mail
       placeholder: me@example.com
     address:
       label: Address
       placeholder: Street
     zip:
-      label: Postal Code*
+      label: Postal Code
       placeholder: US ZIP Code or Postal Code
     country:
       label: Country*
@@ -54,8 +54,8 @@ en:
       placeholder: Your comments
     button_cta: SIGN THE PETITION
   thanks:
-    title: Thanks for signing the petition!
-    share: Please consider sharing with your friends and family.
+    title: Thanks!
+    share: Your video has been received. Check back on June 10 to see all the action.
   gdpr:
     opt_in_label: Would you like to receive important campaign updates and action alerts by email?
     yes_label: Yes, please
