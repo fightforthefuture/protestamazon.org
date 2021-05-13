@@ -160,11 +160,11 @@
              id="video_file"
              name="video_file"
              required />
-          <div class="rounded border d-flex flex-row align-items-center">
-            <div class="col-12 col-md-6 px-3 px-md-5">
+          <div class="rounded d-flex row align-items-center">
+            <div class="col-md-6 px-3 pb-3 pb-md-0">
               <small class="privacy text-alt" v-html="privacyDisclaimer"></small>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-md-6">
               <button class="btn btn-block btn-primary btn-lg btn-cta rounded" @click.prevent="openFilePicker()">
                 <span class="upload-video"><uppercase>Upload video</uppercase></span>
               </button>

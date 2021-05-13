@@ -161,7 +161,11 @@ $container-max-widths: (
   padding-left: $padding;
 
   &:before {
-    left: $margin;
+    left: $margin * .5;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-left: $margin;
   }
 }
 

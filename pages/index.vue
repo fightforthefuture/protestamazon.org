@@ -59,15 +59,21 @@ p {
     border-radius: $border-radius;
     background-size: $spacer * 3;
     right: 0;
+
+    @include media-breakpoint-down(md) {
+      background-position: center $spacer;
+    }
   }
 
   @include media-breakpoint-down(sm) {
     @include font-size(1.5rem);
     padding-left: $spacer * 1.5;
     padding-right: $spacer * 4;
+
     &:before {
       background-size: $spacer;
       width: $spacer * 3;
+      background-position: center;
     }
   }
 
@@ -101,6 +107,7 @@ p {
     left: 0;
     mix-blend-mode: multiply;
     position: absolute;
+    object-fit: cover;
     top: -.5rem;
   }
 
