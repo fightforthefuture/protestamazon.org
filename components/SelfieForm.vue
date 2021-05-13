@@ -168,15 +168,22 @@
     right: 0;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     @include font-size(1.5rem);
     padding-left: $spacer * 1.5;
-    padding-right: $spacer * 4;
+    padding-right: $spacer * 5;
     &:before {
       background-size: $spacer;
-      width: $spacer * 3;
+      width: $spacer * 5;
+      background-size: $spacer * 1.5;
+      background-position: center;
     }
   }
+}
+
+.preview-container,
+.comments {
+  border-radius: 15px !important;
 }
 
 </style>
@@ -267,7 +274,7 @@
 
       .row
         .col-md-6.offset-md-3
-          a.btn.btn-block.btn-submit.bg-white.text-primary.btn-lg.rounded-sm(:disabled="!readyToShare" @click.prevent="createImage()" :class="readyToShare ? '' : 'disabled'")
+          a.btn.btn-block.btn-submit.bg-white.text-primary.text-nowrap.btn-lg.rounded-sm(:disabled="!readyToShare" @click.prevent="createImage()" :class="readyToShare ? '' : 'disabled'")
             span(v-if="isGenerating")
               uppercase {{ $t('generating') }}
             span(v-else)
