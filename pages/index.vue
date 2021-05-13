@@ -13,7 +13,11 @@ h1, h2 {
 }
 
 h3 {
-  @include font-size(3.5 * $font-size-base);
+  @include font-size(3 * $font-size-base);
+}
+
+p {
+  @include font-size(20px);
 }
 
 .btn {
@@ -117,6 +121,10 @@ h3 {
     &:after {
       background-color: theme-color("alt");
     }
+  }
+
+  p {
+    @include font-size(1.1 * $font-size-base);
   }
 }
 
