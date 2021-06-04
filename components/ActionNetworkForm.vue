@@ -750,7 +750,7 @@ export default {
       const { data } = await this.$axios.post('https://uploads.fightforthefuture.org', formData)
 
       if (data.success == true) {
-        this.$trackEvent('uploadVideo')
+        this.$trackGoal('uploadVideo')
         this.videoFile = data.file_name
         if (this.name && this.email && this.zipCode) {
           this.submitForm()
