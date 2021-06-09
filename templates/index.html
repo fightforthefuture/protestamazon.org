@@ -2,13 +2,69 @@
   <div class="container">
     <h1>
       <span class="bg-white text-primary d-inline-block px-2 pt-3 pb-0 mb-3">JUNE 10th:</span>
-      <custom-span class="text-white d-block" rtrim>DEMAND AMAZON STOP FUELING POLICE VIOLENCE</custom-span>
+      <custom-span class="text-white d-block" rtrim><uppercase>Help shut down Amazon's Surveillance-Powered Police State</uppercase></custom-span>
     </h1>
-    <p class="text-white mt-5">Whether it’s selling invasive surveillance technology, partnering with police, or creating the <a href="https://www.technologyreview.com/2018/10/22/139639/amazon-is-the-invisible-backbone-behind-ices-immigration-crackdown/">backbone</a> infrastructure for mass deportations, Amazon is central to militarized policing. Its practices allow racist policing to be more efficient, expanding the criminalization of Black and brown people and creating more opportunities for repressive police violence. This needs to stop. Help us shut down Amazon’s surveillance-powered police state. </p>
+    <p class="text-white mt-5">On June 10th, we’re demanding Amazon stop fueling militarized policing. <button class="btn btn-link bg-primary text-white" @click.prevent="$scrollTo('#submit-video')">Join us by sending a recording</button> of yourself reading the following statement: “Amazon's surveillance empire fuels militarized policing. It needs to stop. We demand Amazon permanently divest from facial recognition technology and cut ties with police and ICE.”</p>
+
+    <VideoGrid class="my-3 my-md-5" />
 
     <button class="btn btn-primary btn-arrow-down" @click.prevent="$scrollTo('#join')">
       <uppercase>Join the Protest</uppercase>
     </button>
+  </div>
+</section>
+<section id="partners" class="mt-0 pt-0 bg-dark">
+  <div class="container">
+    <LogoCloud class="justify-content-center" />
+  </div>
+</section>
+
+<section id="join" aria-labelledby="h2-join">
+  <div class="container text-left">
+    <h2 id="h2-join" class="mb-3">
+      <custom-span ltrim class="text-primary">JOIN THE PROTEST:</custom-span>
+      <custom-span ltrim class="d-md-block">3 Things You Can Do,</custom-span><span>Right Now!</span>
+    </h2>
+    <p class="text-alt">June marks the one year anniversary of the Black Lives Matter movement uprisings, and Amazon continues to expand police surveillance. We are taking action to stop Amazon’s ever-expanding surveillance-powered police state and the threat it poses to Black and brown lives. </p>
+  </div>
+</section>
+<section id="submit-video" aria-labelledby="h2-submit-video" class="bg-gray-lightest">
+  <div class="container text-left">
+    <h2 class="lnumber mb-3" id="h2-submit-video">
+      <span class="number bg-primary text-white">1</span>
+      <uppercase>Digital Protest</uppercase>
+      <img src="~/assets/images/icon-video.svg" aria-hidden="true" />
+    </h2>
+    <p class="text-alt">Join people all across the country in a digital protest. To participate, send us a video recording of an individual or group reading the statement below. We’ll publicize all your videos on June 10th. To show your support, please also share your videos using the hashtag #ProtestAmazon across the internet.</p>
+
+    <p><strong>“Amazon's surveillance empire fuels militarized policing. It needs to stop. We demand Amazon permanently divest from facial recognition technology and cut ties with police and ICE.”</strong></p>
+    <ActionNetworkForm
+      :is-international="false"
+      petition-id="1f708235-1ee7-4b73-8d55-c1f44809200e"
+      />
+  </div>
+</section>
+
+<section id="sign" aria-labelledby="h2-sign" class="bg-primary text-gray-light">
+  <div class="container text-left">
+    <h2 id="h2-sign" class="text-white lnumber mb-3">
+      <span class="number bg-white text-primary">2</span>
+      <uppercase>Take Action</uppercase>
+      <img src="~/assets/images/icon-petition.svg" aria-hidden="true" />
+    </h2>
+    <p>Click here to sign onto the #EyesOnAmazon petition to oppose Amazon's policing of Black and brown communities, workers and immigrants.</p>
+    <a class="btn bg-white text-primary btn-arrow-right" href="https://p2a.co/7omq6Ps?p2asource=FightBup" target="_blank"><uppercase>Take Action</uppercase></a>
+  </div>
+</section>
+
+<section id="poster" aria-labelledby="h2-poster" class="bg-dark text-gray-light">
+  <div class="container text-left">
+    <h2 id="h2-poster" class="text-white lnumber mb-3">
+      <span class="number bg-white text-primary">3</span>
+      <uppercase>Create + Share a Digital Poster</uppercase>
+    </h2>
+    <p>Upload an image and submit text to create your own personal digital poster to share and get the word out using the hashtag #ProtestAmazon. </p>
+    <SelfieForm />
   </div>
 </section>
 
@@ -49,76 +105,3 @@
     </div>
   </div>
 </section>
-
-<section id="join" aria-labelledby="h2-join">
-  <div class="container text-left">
-    <h2 id="h2-join" class="mb-3">
-      <custom-span ltrim class="text-primary">JOIN THE PROTEST:</custom-span>
-      <custom-span ltrim class="d-block">3 Things You Can Do,</custom-span>
-      <span>Right Now!</span>
-    </h2>
-    <p class="text-alt">June marks the one year anniversary of the Black Lives Matter movement uprisings, and Amazon continues to expand police surveillance. We are taking action to stop Amazon’s ever-expanding surveillance-powered police state and the threat it poses to Black and brown lives. </p>
-  </div>
-</section>
-<section id="submit-video" aria-labelledby="h2-submit-video" class="bg-gray-lightest">
-  <div class="container text-left">
-    <h2 class="lnumber mb-3" id="h2-submit-video">
-      <span class="number bg-primary text-white">1</span>
-      <uppercase>Virtual Protest</uppercase>
-      <img src="~/assets/images/icon-video.svg" aria-hidden="true" />
-    </h2>
-    <p class="text-alt">Join people all across the country in a virtual protest. To participate, submit a video recording of an individual or group reading the following statement. We’ll publicize all your videos on June 10th.</p>
-
-    <p><strong>“Amazon's surveillance empire fuels militarized policing. It needs to stop. We demand Amazon permanently divest from facial recognition technology and cut ties with police and ICE.”</strong></p>
-    <ActionNetworkForm
-      :is-international="false"
-      petition-id="1f708235-1ee7-4b73-8d55-c1f44809200e"
-      />
-  </div>
-</section>
-
-<section id="sign" aria-labelledby="h2-sign" class="bg-primary text-gray-light">
-  <div class="container text-left">
-    <h2 id="h2-sign" class="text-white lnumber mb-3">
-      <span class="number bg-white text-primary">2</span>
-      <uppercase>Take Action</uppercase>
-      <img src="~/assets/images/icon-petition.svg" aria-hidden="true" />
-    </h2>
-    <p>Click here to sign onto the #EyesOnAmazon petition to oppose Amazon's policing of Black and brown communities, workers and immigrants.</p>
-    <a class="btn bg-white text-primary btn-arrow-right" href="https://p2a.co/7omq6Ps?p2asource=FightBup" target="_blank"><uppercase>Take Action</uppercase></a>
-  </div>
-</section>
-
-<section id="poster" aria-labelledby="h2-poster" class="bg-dark text-gray-light">
-  <div class="container text-left">
-    <h2 id="h2-poster" class="text-white lnumber mb-3">
-      <span class="number bg-white text-primary">3</span>
-      <uppercase>Create + Share a Digital Poster</uppercase>
-    </h2>
-    <p>Upload an image and submit text to create your own personal digital poster to share and get the word out using the hashtag #ProtestAmazon. </p>
-    <SelfieForm />
-  </div>
-</section>
-
-<section id="june10" aria-labelledby="h2-june10" class="bg-primary text-white">
-  <div class="container text-left">
-    <h2 id="h2-june10" class="mb-3">
-      WHAT WILL HAPPEN ON<custom-span class="text-dark">JUNE 10th?</custom-span></h2>
-
-    <p>Only June 10th, we’ll deliver all the petition signatures to Amazon. Plus, we’ll publish the virtual protest gallery on this website and social media to make our collective demands known to the world.</p>
-
-    <p>To show your support on June 10th, please share your digital posters and videos using the hashtag #ProtestAmazon across the internet. </p>
-  </div>
-</section>
-
-<section id="participants" aria-labelledby="h2-participants" class="d-none">
-  <div class="container text-left">
-    <h2 id="h2-participants" class="mb-3">PARTICIPANTS SECTION</h2>
-    <p class="text-alt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus suscipit odio sapien, vitae suscipit nibh accumsan quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-    <LogoCloud class="justify-content-left" />
-  </div>
-</section>
-
-
-
-

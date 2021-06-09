@@ -1,14 +1,20 @@
 <style lang="scss">
 section:first-child {
-  background-color: transparent;
+  background-color: #A4A4A4;
   background-image: url('~assets/images/header.png');
   background-repeat: no-repeat;
-  background-size: cover;
-  margin-bottom: $spacer * 7;
-  padding-top: 31vw;
+  background-size: 100%;
+  padding-top: 10vw;
+}
+
+#partners {
+  padding-top: $spacer * 5 !important;
+  @include media-breakpoint-down(sm) {
+    padding-top: $spacer * 2 !important;
+  }
 }
 h1, h2 {
-  @include font-size(4 * $font-size-base);
+  @include font-size(3.5 * $font-size-base);
   line-height: 0.93;
 }
 
@@ -20,7 +26,7 @@ p {
   @include font-size(20px);
 }
 
-.btn {
+.btn:not(.btn-link) {
   font-family: $headings-font-family;
 
   span {
@@ -29,8 +35,20 @@ p {
   }
 }
 
+.btn-link {
+  @include border-radius(0);
+  color: $link-color;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
+  &:hover {
+    transform: none;
+  }
+}
+
 .btn-arrow-down {
   @include background-icon-right('~/assets/images/arrow-down.svg', $spacer * 7, 1rem);
+
   margin: 0 0 -7rem;
 
   @include media-breakpoint-down(sm) {
@@ -187,12 +205,14 @@ label {
 import ActionNetworkForm from '~/components/ActionNetworkForm'
 import LogoCloud from '~/components/LogoCloud'
 import SelfieForm from '~/components/SelfieForm'
+import VideoGrid from '~/components/VideoGrid'
 
 export default {
   components: {
     ActionNetworkForm,
     LogoCloud,
-    SelfieForm
+    SelfieForm,
+    VideoGrid
   }
 }
 </script>

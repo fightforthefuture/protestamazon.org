@@ -1,14 +1,90 @@
 [
   {
+    "name": "Action Center on Race and The Economy (ACRE)",
+    "image_url": "/logos/Action Center on Race and The Economy (ACRE).png"
+  },
+  {
     "name": "Athena Coalition",
     "image_url": "/logos/Athena Coalition.png"
+  },
+  {
+    "name": "Color of Change",
+    "image_url": "/logos/Color of Change.png"
   },
   {
     "name": "Fight for the Future",
     "image_url": "/logos/Fight for the Future.png"
   },
   {
+    "name": "Just Futures Law",
+    "image_url": "/logos/Just Futures Law.png"
+  },
+  {
+    "name": "Laane",
+    "image_url": "/logos/Laane.png"
+  },
+  {
+    "name": "Make the Road New York",
+    "image_url": "/logos/Make the Road New York.png"
+  },
+  {
     "name": "MediaJustice",
     "image_url": "/logos/MediaJustice.png"
+  },
+  {
+    "name": "NYCC_logo_120120-9",
+    "image_url": "/logos/NYCC_logo_120120-9.png"
+  },
+  {
+    "name": "National Employment Law Project",
+    "image_url": "/logos/National Employment Law Project.png"
+  },
+  {
+    "name": "Partnership for Working Families",
+    "image_url": "/logos/Partnership for Working Families.png"
+  },
+  {
+    "name": "Public Citizen",
+    "image_url": "/logos/Public Citizen.jpg"
+  },
+  {
+    "name": "S.T.O.P. - The Surveillance Technology Oversight Project",
+    "image_url": "/logos/S.T.O.P. - The Surveillance Technology Oversight Project.png"
+  },
+  {
+    "name": "United for Respect",
+    "image_url": "/logos/United for Respect.png"
+  },
+  {
+    "name": "demand-progress",
+    "image_url": "/logos/demand-progress.png"
+  },
+  {
+    "name": "free-press",
+    "image_url": "/logos/free-press.jpeg"
+  },
+  {
+    "name": "mpower-change",
+    "image_url": "/logos/mpower-change.png"
+  },
+  {
+    "name": "presente",
+    "image_url": "/logos/presente.png"
+  },
+  {
+    "name": "rootsaction",
+    "image_url": "/logos/rootsaction.png"
+  },
+  {
+    "name": "secure-justice",
+    "image_url": "/logos/secure-justice.png"
+  },
+  {
+    "name": "sum-of-us",
+    "image_url": "/logos/sum-of-us.png"
+  },
+  {
+    "name": "warehouse-worker-resource-center",
+    "image_url": "/logos/warehouse-worker-resource-center.jpeg"
   }
 ]

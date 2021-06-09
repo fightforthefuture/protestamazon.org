@@ -8,13 +8,16 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
+    "pregenerate": "npm run generate-logos && npm run generate-videos",
     "generate": "nuxt generate",
     "generate-routes": "node scripts/generate-routes.js",
     "generate-logos": "node scripts/generate-logos.js",
+    "generate-videos": "node scripts/generate-videos.js",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "analyze": "nuxt build --analyze",
-    "deploy": "rsync -avh dist/ static1:~/www/protestamazon.org --delete"
+    "deploy": "rsync -avh dist/ static1:~/www/protestamazon.org --delete",
+    "deploy-staging": "rsync -avh dist/ static1:~/www/staging.protestamazon.org --delete"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",
