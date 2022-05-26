@@ -21,7 +21,7 @@
       <div class="rounded border d-flex flex-row align-items-center">
         <div class="col-12 col-md-6 px-3 px-md-5">
           <small>
-            By submitting this video you are granting us the right to use it for promotional purposes. <a href="https://www.fightforthefuture.org/privacy/" target="_blank">Privacy Policy</a> and <a href="https://www.fightforthefuture.org/privacy/" target="_blank">Terms of Service</a>
+            By submitting this video you are granting us the right to use it for promotional purposes. <a href="https://www.fightforthefuture.org/privacy/" target="_blank">Privacy Policy</a> and <a href="https://www.fightforthefuture.org/sms/" target="_blank">Terms of Service</a>
           </small>
         </div>
         <div class="col-12 col-md-6">
