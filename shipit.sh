@@ -1,14 +1,16 @@
 #!/bin/bash
 
-NODE_VERSION='14'
-
 # fetch new code
 git fetch
 git reset --hard origin/master
 
 # make sure correct node is installed and use that version
-nvm install ${NODE_VERSION}
-nvm use ${NODE_VERSION}
+NODE_VERSION=$(cat .nvmrc)
+. ~/.nvm/nvm.sh
+nvm install $NODE_VERSION
+
+# update dependencies
+npm install -g npm
 npm install
 
 # build site
