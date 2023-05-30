@@ -10,7 +10,7 @@
     "uploadVideo": "GYFHPQXD"
   },
   "mapboxToken": "",
-  "isArchived": false,
+  "isArchived": true,
   "features": {
     "map": false
   }
